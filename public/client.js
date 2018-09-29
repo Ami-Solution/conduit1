@@ -7,17 +7,17 @@
 $(function() {
   console.log('hello world :o')
   
-  $.get('/dreams', function(dreams) {
-    dreams.forEach(function(dream) {
-      $('<li></li>').text(dream).appendTo('ul#dreams')
+  $.get('/orders', function(orders) {
+    orders.forEach(function(orders) {
+      $('<li></li>').text(orders).appendTo('ul#orders')
     })
   })
 
   $('form').submit(function(event) {
     event.preventDefault()
-    var dream = $('input').val()
-    $.post('/dreams?' + $.param({dream: dream}), function() {
-      $('<li></li>').text(dream).appendTo('ul#dreams')
+    var order = $('input').val()
+    $.post('/orders?' + $.param({order: order}), function() {
+      $('<li></li>').text(order).appendTo('ul#orders')
       $('input').val('')
       $('input').focus()
     })
